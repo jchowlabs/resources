@@ -1,0 +1,199 @@
+extends ../layout.pug
+
+block meta
+    title Does my browser support WebAuthn?
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='author', content='auth0.com')
+    meta(name='description', content='An overview of all modern browser and their support for WebAuthn platform and roaming authenticators.')
+
+    meta(property="og:title" content="Does my browser support WebAuthn?")
+    meta(property="og:site_name" content="Does my browser support WebAuthn?")
+    meta(property="og:url" content="https://webauthn.me/browser-support")
+    meta(property="og:image" content="https://cdn.auth0.com/blog/webauthn:card.png")
+    meta(property="og:description" content="An overview of all modern browser and their support for WebAuthn platform and roaming authenticators.")
+    meta(property="og:type" content="website")
+
+    meta(name="twitter:site" content="@auth0")
+    meta(name="twitter:creator" content="@auth0")
+    meta(name="twitter:title" content="Does my browser support WebAuthn?")
+    meta(name="twitter:url" content="https://webauthn.me/browser-support")
+    meta(name="twitter:description" content="An overview of all modern browser and their support for WebAuthn platform and roaming authenticators.")
+    meta(name="twitter:card" content="summary_large_image")
+    meta(name="twitter:image" content="https://cdn.auth0.com/blog/webauthn:card.png")
+    meta(name="twitter:image:height" content="512")
+    meta(name="twitter:image:width" content="1024")
+
+block stylesheets
+  link(rel='stylesheet', href='/css/browser-support.css', type='text/css', media='all')
+
+block variables
+  - var page="browser-support"
+
+block content
+  .browser-support-container
+      h2 Browser support
+      p Browser support for WebAuthn is quickly improving. You can find an overview of both platform and external authenticators on this page.
+
+      h3 Does your current browser support WebAuthn?
+      .banner
+        .browser-test 
+          .roaming(data-credential-support) 
+            img(src="/img/roaming.svg" alt="Roaming authenticators")
+            p 
+              | Roaming authenticators
+              img.supported(src="/img/check-circle.svg" alt="Your browser supports roaming authenticators")
+              img.not-supported(src="/img/x-circle.svg" alt="Your browser does not support roaming authenticators")
+          .platform(data-platform-authenticator-support)
+            img(src="/img/platform.svg" alt="platform authenticators")
+            p 
+              | Platform authenticators
+              img.supported(src="/img/check-circle.svg" alt="Your browser supports platform authenticators")
+              img.not-supported(src="/img/x-circle.svg" alt="Your browser does not support platform authenticators")
+        .browser
+          | You are currently using 
+          strong(data-browser-name)
+          |  with version 
+          strong(data-browser-version)
+
+      h3 Platform Authenticators
+      p Platform authenticators are built into your devices like computers and smartphone. They can often be unlocked using biometrics, a finger print with Touch ID, or your face with Windows Hello or Face ID.
+      .table
+        .table-scroll-wrap
+          table
+            thead
+              th
+              th Android 7+
+              th iOS 14.5+
+              th 
+                | Windows 10 
+                span.small (with Windows Hello)
+              th macOS Catalina
+              th macOS Big Sur
+              th Desktop Linux
+            tbody 
+              tr 
+                td Chrome
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td -
+              tr
+                td Safari
+                td N/A
+                td.y Yes
+                td N/A
+                td No
+                td.y Yes
+                td N/A
+              tr
+                td Firefox
+                td No
+                td.y Yes
+                td.y Yes
+                td No
+                td No
+                td -
+              tr
+                td Brave
+                td No
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td -
+              tr
+                td Edge
+                td No
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td -
+              tr
+                td Internet Explorer
+                td N/A
+                td N/A
+                td No
+                td N/A
+                td N/A
+                td N/A
+
+      h3 Roaming Authenticators
+      p Roaming Authenticators are separate hardware authenticators, that can be connected to your device in a number of ways. The most common ones connect through USB, Bluetooth or NFC. These are most commonly security keys like Yubikeys or Titan Keys.
+      .table
+        .table-scroll-wrap
+          table
+            thead
+              th
+              th Android 7+
+              th iOS 14.5+
+              th Windows 10
+              th macOS Catalina 
+              th macOS Big Sur
+              th Desktop Linux
+            tbody 
+              tr 
+                td Chrome
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+              tr
+                td Safari
+                td N/A
+                td.y Yes
+                td N/A
+                td.y Yes
+                td.y Yes
+                td N/A
+              tr
+                td Firefox
+                td No
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+              tr
+                td Brave
+                td No
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+              tr
+                td Edge
+                td No
+                td No
+                td.y Yes
+                td.y Yes
+                td.y Yes
+                td.y Yes
+              tr
+                td Internet Explorer
+                td N/A
+                td N/A
+                td No
+                td N/A
+                td N/A
+                td N/A
+
+      h3 Read more
+
+      ul
+        li
+          a(href="https://fidoalliance.org/fido2/fido2-web-authentication-webauthn/") Fido Aliance
+        li
+          a(href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Authentication_API#authenticatorresponse") Mozilla Developer Network
+        li
+          a(href="https://caniuse.com/?search=webauthn") Caniuse
+
+block scripts
+  script(src="js/browserSupport.js")

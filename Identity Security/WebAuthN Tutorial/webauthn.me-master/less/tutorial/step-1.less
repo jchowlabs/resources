@@ -1,0 +1,45 @@
+@import "../vars.less";
+@import "step-common.less";
+
+.tutorial-step-1-container {
+  .tutorial-step-1-box {
+    display: flex;
+    align-items: center;
+
+    margin: 20px 0;
+    padding: 0 20px;
+    width: 100%;
+    height: 73px;
+    box-sizing: border-box;
+
+    background-color: @color-dark-gray;
+    border-radius: @border-radius-round;
+
+    font-family: "Roboto Mono", monospace;
+    font-size: 13px;
+
+    .tutorial-step-1-name {
+      text-transform: lowercase;
+      margin: 0 1ch 0 0;
+    }
+
+    .tutorial-step-1-input {
+      background-color: @color-light-gray;
+      border-radius: @border-radius-rounder;
+      outline: none;
+      border: 3px solid @color-light-gray;
+      width: 100%;
+      max-width: 444px;
+      font-size: 13px;
+    }
+  }
+}
+
+@media (min-width: @breakpoint-width) {
+  .tutorial-step-1-container {
+    .tutorial-step-1-box {
+      padding: 0 30px;
+      margin: @tutorial-step-box-margin-top 0;
+    }
+  }
+}

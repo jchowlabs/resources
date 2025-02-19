@@ -1,0 +1,88 @@
+@import "../vars.less";
+@import "./form.less";
+@import "./tabs.less";
+@import "./editor.less";
+@import "./output.less";
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 20px;
+  background: #202122;
+}
+
+.debugger-header {
+  display: flex;
+  flex-flow: column;
+}
+
+.debugger-header-title {
+  color: #fff;
+
+  h2 {
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin: 0 0 20px;
+  }
+}
+
+.debugger-header-key {
+  margin: 0 0 20px;
+  img {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+@media (min-width: 820px) {
+  .container {
+    padding: 100px;
+  }
+
+  .debugger-header {
+    flex-flow: row;
+    justify-content: space-between;
+  }
+
+  .debugger-header-title {
+    min-width: 70%;
+
+    p {
+      margin: 0 0 45px;
+    }
+  }
+
+  .debugger-header-key {
+    margin: 0;
+
+    img {
+      margin: 0;
+    }
+  }
+}
+
+.warning {
+  margin: 20px 0;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+
+  background-color: @color-warning-light;
+  border: 1px solid @color-warning;
+
+  color: @color-warning;
+  font-size: 16px;
+}
+
+.warning a {
+  color: @color-warning;
+  text-decoration: underline;
+}
+
+.warning.hidden {
+  display: none;
+}

@@ -1,0 +1,29 @@
+.tutorial-step-3-container.tutorial-step-container
+  +tutorial-step-left(3)
+
+  .tutorial-step-content
+    h1.tutorial-step-title.title Your New Credential
+    h4.tutorial-step-subtitle.normal.
+      You have created a new credential. The #[pre rawId] and the public key are all that are needed to identify you. These are meant to be passed to the Relying Party.
+
+    .tutorial-animation-container
+      object#tutorial-step-3-animation-object.tutorial-animation-object(type='image/svg+xml',
+                                              data='/img/animation.svg')
+
+    .tutorial-step-3-up-warning.warning.hidden
+      strong Warning: 
+      | Your authenticator device does not perform a 
+      strong test of user presence 
+      | as defined in the 
+      a(href="https://www.w3.org/TR/webauthn/#test-of-user-presence" title="WebAuthn Specification") WebAuthn Specification.
+
+    .tutorial-step-3-data-container
+      .tutorial-step-3-data-left
+        h3.tutorial-step-3-data-title Your rawId
+        code#tutorial-step-3-data-raw-id.tutorial-code-container
+
+      .tutorial-step-3-data-right
+        h3.tutorial-step-3-data-title Your Public Key
+        pre#tutorial-step-3-data-public-key.tutorial-code-container
+
+    button.tutorial-step-3-next.button-colorful Next

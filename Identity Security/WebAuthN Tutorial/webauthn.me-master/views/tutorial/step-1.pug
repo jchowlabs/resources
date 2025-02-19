@@ -1,0 +1,21 @@
+include step-left.pug
+
+.tutorial-step-1-container.tutorial-step-container
+  +tutorial-step-left(1)
+
+  .tutorial-step-content
+    h1.tutorial-step-title.title Register Your User
+    h4.tutorial-step-subtitle.normal.
+      Connect a USB authenticator, or make sure your device has a built in one like TouchID, and enter your username
+      or email address.
+
+    .tutorial-step-1-box
+      span.tutorial-step-1-name Name:
+      input.tutorial-step-1-input(type='text',
+                                  placeholder='Username or email')
+
+    button.tutorial-step-1-register.button-colorful Register
+
+    .tutorial-animation-container
+      object#tutorial-step-1-animation-object.tutorial-animation-object(type='image/svg+xml',
+                                              data='/img/animation.svg')

@@ -1,0 +1,24 @@
+.error {
+  margin-top: 10rem;
+  padding: 30px 40px;
+  background: #2f3132;
+  color: @color-white;
+
+  p {
+    margin: 0 0 1rem;
+
+    &.intro {
+      font-size: 1.3rem;
+    }
+  }
+
+  .button-colorful {
+    display: inline-block;
+  }
+}
+
+@media (min-width: @breakpoint-width) {
+  .error {
+    padding: 65px 80px;
+  }
+}

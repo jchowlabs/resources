@@ -1,0 +1,56 @@
+@import "../vars.less";
+
+.tutorial-try-the-debugger-container {
+  width: 100%;
+  background-color: #242424;
+  display: flex;
+  flex-flow: column;
+  border-radius: @border-radius-round;
+  margin-top: 40px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .tutorial-try-the-debugger-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+
+    h1 {
+      font-weight: @font-weight-semi-bold;
+      font-size: 34px;
+      color: white;
+      max-width: 489px;
+    }
+  }
+
+  .tutorial-try-the-debugger-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .button-dark,
+    .button-colorful {
+      margin: 12px;
+    }
+  }
+}
+
+@media(min-width: 820px) {
+  .tutorial-try-the-debugger-container {
+    height: 256px;
+    flex-flow: row;
+    padding: 0;
+  }
+
+  .tutorial-try-the-debugger-left {
+      padding: 0;
+  }
+
+  .tutorial-try-the-debugger-left,
+  .tutorial-try-the-debugger-right {
+    width: 50%;
+  }
+}

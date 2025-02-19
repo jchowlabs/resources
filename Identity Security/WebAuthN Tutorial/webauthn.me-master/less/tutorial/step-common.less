@@ -1,0 +1,145 @@
+@import "../vars.less";
+
+@tutorial-step-box-margin-top: 64px;
+
+.tutorial-step-container {
+  transition: opacity 0.2s ease-in-out;
+
+  color: white;
+  letter-spacing: 0;
+
+  opacity: 0.4;
+
+  &.active {
+    opacity: 1;
+  }
+
+  &.loaded {
+    .tutorial-step-content {
+      .tutorial-animation-container {
+        opacity: 1;
+      }
+    }
+  }
+
+  .tutorial-step-left {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .tutorial-step-circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: @tutorial-step-left-mobile-width;
+      height: @tutorial-step-left-mobile-width;
+      border-radius: 50%;
+      border: 2px solid #00b7ef;
+      background-color: @background-color;
+
+      box-sizing: border-box;
+
+      .tutorial-step-number {
+        font-weight: @font-weight-semi-bold;
+        font-size: 20px;
+        text-align: center;
+      }
+    }
+
+    .tutorial-step-line {
+      position: relative;
+      left: 50%;
+      border-left: 1px solid @color-dark-gray;
+      height: 100%;
+      z-index: -1;
+    }
+  }
+
+  .tutorial-step-content {
+    width: 100%;
+    flex-grow: 1;
+
+    .tutorial-step-title {
+      font-size: 20px;
+      font-weight: @font-weight-semi-bold;
+      line-height: @tutorial-step-left-width;
+    }
+
+    .tutorial-step-subtitle {
+      position: relative;
+      top: -5px;
+      font-size: 16px;
+      font-weight: @font-weight-light;
+    }
+
+    .tutorial-animation-container {
+      width: 100%;
+      background-color: transparent;
+      margin: (@tutorial-step-box-margin-top / 2) 0
+        @tutorial-step-box-margin-top 0;
+
+      transition: opacity 0.2s ease-in-out;
+      opacity: 0;
+    }
+
+    .tutorial-code-container {
+      font-size: 13px;
+      font-weight: lighter;
+      line-height: 24px;
+      word-wrap: break-word;
+      color: @color-text-light-gray;
+    }
+
+    .tutorial-animation-object {
+      width: 100%;
+    }
+
+    .tutorial-step-data-common() {
+      flex-grow: 1;
+      width: 50%;
+      max-width: 50%;
+      padding: 32px 32px 32px 32px;
+      box-sizing: border-box;
+      overflow: scroll;
+    }
+  }
+}
+
+@media (min-width: @breakpoint-width) {
+  .tutorial-step-container {
+    position: relative;
+    left: 100px;
+    display: flex;
+    width: calc(100% - 100px);
+    padding: 0;
+
+    .tutorial-step-left {
+      display: block;
+      width: @tutorial-step-left-width;
+
+      .tutorial-step-circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: @tutorial-step-left-width;
+        height: @tutorial-step-left-width;
+
+        .tutorial-step-number {
+          font-size: 36px;
+        }
+      }
+    }
+
+    .tutorial-step-content {
+      max-width: 795px;
+      padding-left: 116px;
+
+      .tutorial-step-title {
+        font-size: 36px;
+      }
+    }
+  }
+}

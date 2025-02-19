@@ -1,0 +1,94 @@
+@import "../vars.less";
+@import "browser-status.less";
+@import "branding.less";
+
+.footer-container {
+  width: 100%;
+  color: white;
+  box-sizing: border-box;
+}
+
+.footer-banner {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 50px 30px;
+  margin: 0 0 100px;
+  background: @color-medium-gray;
+  border-radius: 3px;
+
+  .footer-banner-logo {
+    width: 160px;
+    margin: 0 0 24px;
+  }
+
+  .footer-banner-text {
+    margin: 0 0 32px 0;
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: center;
+
+    a {
+      color: @color-blue;
+    }
+  }
+
+  .footer-banner-buttons {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    a {
+      width: 100%;
+      margin: 0 0 10px;
+      text-align: center;
+    }
+  }
+}
+
+.footer-github {
+  text-align: center;
+  margin-top: 20px;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    transition: border 0.2s ease-in-out;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    color: #00b7ef;
+  }
+}
+
+@media (min-width: @breakpoint-width) {
+  .footer-container {
+    padding: 0;
+  }
+
+  .footer-banner {
+    padding: 100px 250px;
+
+    .footer-banner-buttons {
+      flex-flow: row;
+
+      a {
+        width: auto;
+        margin: 0 10px;
+      }
+    }
+  }
+}
+
+[aria-label="Cookie Preferences"] {
+  position: fixed;
+  bottom: 0;
+  left: 20px;
+  padding: 10px 15px;
+
+  background: @color-pink;
+  border-radius: @border-radius-round @border-radius-round 0 0;
+  color: @color-white;
+}

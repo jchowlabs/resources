@@ -1,0 +1,73 @@
+@import "vars.less";
+@import "fonts.less";
+@import "header.less";
+@import "hero.less";
+@import "typography.less";
+@import "footer/index.less";
+@import "modal.less";
+@import "error.less";
+
+html {
+  padding: 0 30px;
+  background-color: @background-color;
+  color: @font-color-gray;
+  font-family: "fakt-web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: @font-size;
+  font-weight: @font-weight-normal;
+}
+
+body {
+  max-width: 1200px;
+  margin: 5em auto 0 auto;
+}
+
+pre,
+code {
+  display: inline;
+  font-family: "Roboto Mono", monospace;
+  font-size: @font-size;
+}
+
+input {
+  font-family: "Roboto Mono", monospace;
+  color: white;
+  border-style: none;
+  height: @input-type-text-height;
+  font-size: @font-size;
+}
+
+button {
+  font-size: @font-size;
+}
+
+.image {
+  width: 100%;
+  margin: 0 0 32px;
+  padding: 0;
+
+  img {
+    width: 100%;
+  }
+}
+
+.optanon-alert-box-wrapper {
+  left: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.hide-mobile {
+  display: none;
+}
+
+@media (min-width: @breakpoint-width) {
+  body {
+    margin: 8em auto 0 auto;
+  }
+
+  .hide-mobile {
+    display: initial;
+  }
+}

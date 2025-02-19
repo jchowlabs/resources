@@ -1,0 +1,52 @@
+mixin footer-browser-status-element(icon, name)
+  .footer-browser-status
+    img(src=icon, alt='browser logo')
+    span= name
+
+.footer-container
+  if page != "browser-support"
+    .footer-browser-status-container
+      .footer-browser-status-text-container
+        .footer-browser-status-text-title
+          img(src='/img/question-circle.svg', alt='question icon')
+          h4 Browser Status
+        p.
+          Web Authentication is (partially) supported in most modern browsers.
+        a(href="/browser-support", style="margin-top: 1rem; text-align: center;").button-dark Test your browser
+        
+      .footer-browser-icons-container
+        +footer-browser-status-element('/img/firefox-logo.png', 'Firefox')
+        +footer-browser-status-element('/img/chrome-logo.png', 'Chrome')
+        +footer-browser-status-element('/img/edge-logo.png', 'Edge')
+  .footer-banner
+    img.footer-banner-logo(src="/img/auth0.svg", alt="Auth0 logo")
+    //- p.footer-banner-text webauthn.me is brought to you by #[a(href="https://auth0.com/developers/") Auth0] #[br] Securely implement an authentication flow in less than 10 minutes.
+    p.footer-banner-text With Auth0 you can easily add WebAuthn as a second factor<br/> to add an extra layer of security for your users.
+
+    div.footer-banner-buttons
+      a(href="https://auth0.com/signup" class="button-orange") Try Auth0 for free
+
+  .footer-branding-container
+    .footer-branding-container-inner 
+      .footer-branding-left
+        a.footer-crafted-by-container(href='https://auth0.com/developers/')
+          span Crafted by
+          img.footer-branded-crafted-img(src='/img/logo-ft.svg', alt='auth0 logo')
+        div.footer-privacy-container
+          a.footer-privacy-link(href='https://auth0.com/privacy/', target="_blank")
+            | Privacy
+          span.footer-privacy-separator •
+          a.footer-privacy-link(href='https://auth0.com/web-terms', target="_blank")
+            | Terms of Service
+        span.footer-copyright.
+          © #{new Date().getFullYear()} Okta, Inc. All Rights Reserved.
+      img(src='/img/webauthn-logo-no-text.svg', alt='webauthn logo')
+      .footer-branding-right
+        span Spread the word
+        a.footer-branding-twitter(href='https://twitter.com/home?status=Check%20out%20https%3A//webauthn.me%20and%20learn%20what%20Web%20Authentication%20is%20all%20about!', target="_blank")
+          img(src='/img/twitter-logo.svg', alt='twitter logo')
+        a.footer-branding-facebook(href="https://www.facebook.com/sharer/sharer.php?u=https%3A//webauthn.me", target="_blank")
+          img(src='/img/facebook-logo.svg', alt='facebook logo')
+    .footer-github
+      p Found a bug? 
+      a(href='https://github.com/auth0/webauthn.me/pulls', target='_blank') Send a Pull Request!

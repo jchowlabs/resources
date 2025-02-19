@@ -1,0 +1,12 @@
+extends layout.pug
+
+block stylesheets
+  link(rel='stylesheet', href='css/index.css', type='text/css', media='all')
+
+block scripts
+  script(src="js/index.js")
+
+block content
+  include top.pug
+  include debugger/howto.pug
+  include debugger/index.pug
