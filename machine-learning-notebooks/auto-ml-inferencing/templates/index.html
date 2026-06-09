@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Predictor</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 16px;
+            width: 200px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Price Predictor</h1>
+
+        {% if not model_trained %}
+            <form action="/enter_data" method="post">
+                <label for="size">Shoe Size:</label>
+                <input type="number" step="any" name="size" required>
+                
+                <label for="price">Price:</label>
+                <input type="number" step="any" name="price" required>
+                
+                <button type="submit">Enter Data</button>
+            </form>
+
+            {% if shoe_data %}
+                <h2>Entered Data:</h2>
+                <ul>
+                    {% for i in range(shoe_data['sizes']|length) %}
+                        <li>{{ shoe_data['sizes'][i] }} - ${{ shoe_data['prices'][i] }}</li>
+                    {% endfor %}
+                </ul>
+
+                {% if shoe_data['sizes']|length >= 5 %}
+                    <form action="/train_model" method="post">
+                        <button type="submit">Train Model</button>
+                    </form>
+                {% endif %}
+            {% endif %}
+        {% else %}
+            <p>Model Trained!</p>
+
+            <form action="/predict_price" method="post">
+                <label for="size_to_predict">Enter Shoe Size:</label>
+                <input type="number" step="any" name="size_to_predict" required>
+                
+                <button type="submit">Get Prediction</button>
+            </form>
+
+            {% if prediction is not none %}
+                <p>Predicted Price: ${{ prediction }}</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
